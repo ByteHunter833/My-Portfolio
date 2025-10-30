@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 199 89% 48%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 17% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 220 17% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 262 83% 58%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 199 89% 48%;
+
+    --radius: 0.75rem;
+
+    /* Portfolio Custom Tokens */
+    --neon-cyan: 189 97% 55%;
+    --neon-blue: 217 91% 60%;
+    --electric-purple: 262 83% 58%;
+    --glass-bg: 0 0% 100%;
+    --glass-border: 220 13% 91%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(199 89% 48%) 0%, hsl(217 91% 60%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(262 83% 58%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(220 17% 98%) 100%);
+    
+    /* Shadows */
+    --shadow-glow: 0 0 40px hsla(199 89% 48% / 0.3);
+    --shadow-glass: 0 8px 32px hsla(199 89% 48% / 0.1);
+    --shadow-card: 0 4px 24px hsla(222 47% 11% / 0.08);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 222 47% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 189 97% 55%;
+    --primary-foreground: 222 47% 11%;
+
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 262 83% 58%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 189 97% 55%;
+
+    /* Portfolio Custom Tokens - Dark Mode */
+    --neon-cyan: 189 97% 55%;
+    --neon-blue: 217 91% 60%;
+    --electric-purple: 262 83% 58%;
+    --glass-bg: 222 47% 11%;
+    --glass-border: 217 33% 20%;
+    
+    /* Gradients - Dark */
+    --gradient-primary: linear-gradient(135deg, hsl(189 97% 55%) 0%, hsl(217 91% 60%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(262 83% 58%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(222 47% 8%) 0%, hsl(222 47% 11%) 100%);
+    
+    /* Shadows - Dark */
+    --shadow-glow: 0 0 60px hsla(189 97% 55% / 0.4);
+    --shadow-glass: 0 8px 32px hsla(189 97% 55% / 0.15);
+    --shadow-card: 0 4px 24px hsla(0 0% 0% / 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-card/60 backdrop-blur-xl border border-border/50;
+  }
+
+  .glow-text {
+    text-shadow: 0 0 20px hsla(var(--neon-cyan) / 0.5);
+  }
+
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 20px hsla(var(--neon-cyan) / 0.3);
+    }
+    to {
+      box-shadow: 0 0 40px hsla(var(--neon-cyan) / 0.6);
+    }
+  }
+
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+}
